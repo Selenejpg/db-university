@@ -38,12 +38,14 @@ Query 7
 
 Risposta: (12)
 SELECT * FROM `departments`;
+SELECT COUNT(*) AS `departments` FROM `departments`;
 
 
 Query 8
 
 Risposta: (50)
 SELECT * FROM `teachers` WHERE IsNull(`phone`);
+SELECT COUNT(*) AS `teachers` FROM `teachers` WHERE IsNull(`phone`);
 
 
 
