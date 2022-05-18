@@ -48,4 +48,66 @@ SELECT * FROM `teachers` WHERE IsNull(`phone`);
 SELECT COUNT(*) AS `teachers` FROM `teachers` WHERE IsNull(`phone`);
 
 
+QUERY CON GROUP BY
+
+Query 1
+
+Risposta:
+SELECT COUNT(id), YEAR(`enrolment_date`) FROM `students` WHERE `enrolment_date` GROUP BY YEAR(`enrolment_date`);
+
+
+Query 2
+
+Risposta: 
+SELECT COUNT(id), `office_address` FROM `teachers` GROUP BY `office_address`;
+
+
+Query 3
+
+Risposta: 
+SELECT AVG(`vote`) 'Media dei voti', `exam_id`  FROM `exam_student` GROUP BY `exam_id`;
+
+
+Query 4 
+
+Risposta: 
+SELECT COUNT(`name`), `department_id` FROM `degrees` GROUP BY `department_id`;
+
+
+QUERY CON JOIN
+
+Query 1
+
+Risposta: 
+
+Query 2
+
+Risposta: 
+
+
+Query 3
+
+Risposta: 
+
+
+Query 4 
+
+Risposta: 
+
+
+Query 5
+
+Risposta: 
+
+
+Query 6
+
+Risposta: 
+
+
+Query 7
+
+Risposta: 
+
+
 
