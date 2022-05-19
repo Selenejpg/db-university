@@ -79,35 +79,61 @@ QUERY CON JOIN
 Query 1
 
 Risposta: 
+SELECT * FROM `students` 
+JOIN `degrees` ON `students` . `degree_id` = `degrees` . `id` 
+WHERE `degrees` . `name` = "Corso di Laurea in Economia"; 
 
-Query 2
+
+Query 2 
 
 Risposta: 
+SELECT * FROM `departments` JOIN `degrees` ON `degrees` . `department_id` || `departments` . `id` WHERE `departments` . `name` = "Dipartimento di Neuroscienze" AND `degrees` . `level` = "magistrale";
 
 
 Query 3
 
 Risposta: 
+SELECT * FROM `teachers`
+JOIN `course_teacher` ON `course_teacher` . `teacher_id` = `teachers` . `id`
+JOIN `courses` ON `course_teacher` . `course_id` = `courses` . `id`
+WHERE `teachers` . `name` = "FULVIO" AND `teachers` . `surname` = "AMATO";
 
 
 Query 4 
 
 Risposta: 
+SELECT * FROM `students`
+JOIN `degrees` ON `students` . `degree_id` = `degrees` . `id`
+JOIN `departments` ON `departments` . `id` = `degrees` . `department_id`
+ORDER BY `students` . `name` ASC, `students` . `surname` ASC;
 
 
 Query 5
 
 Risposta: 
+SELECT *
+FROM `degrees` 
+JOIN `courses` ON `degrees` . `id` = `courses` . `degree_id`
+JOIN `course_teacher` ON `courses` . `id` = `course_teacher` . `course_id`
+JOIN `teachers` ON `course_teacher` . `course_id` = `teachers` . `id`;
 
 
 Query 6
 
 Risposta: 
+SELECT *
+FROM `teachers`
+JOIN `course_teacher` ON `teachers` . `id` = `course_teacher` . `teacher_id`
+JOIN `courses` ON `course_teacher` . `course_id` = `course_id`
+JOIN `degrees` ON `courses` . `degree_id` = `degree_id`
+JOIN `departments` ON `degrees` . `department_id` = `departments` . `id`
+WHERE `departments` . `name` = "Dipartimento di Matematica";
 
 
 Query 7
 
 Risposta: 
+
 
 
 
