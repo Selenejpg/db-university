@@ -133,6 +133,19 @@ WHERE `departments` . `name` = "Dipartimento di Matematica";
 Query 7
 
 Risposta: 
+SELECT id_studente, SUM(superato), SUM(bocciato)
+FROM(SELECT S.id AS id_studente, ES.exam_id AS id_esame, COUNT(*) AS superato, 0 AS bocciato
+FROM `students` S
+INNER JOIN `exam_student` ES
+ON S.id = ES.student_id
+WHERE ES.vote >= 18
+GROUP BY S.id, ES.exam_id
+UNION ALL
+SELECT S.id AS id_studente, ES.exam_id AS id_esame,0 AS superato, COUNT(*) AS bocciato
+FROM `students` S
+INNER JOIN `exam_student` ES ON S.id = ES.student_id
+WHERE ES.vote < 18 GROUP BY S.id, ES.exam_id)
+GROUP BY id_studente;
 
 
 
